@@ -23,7 +23,21 @@ Shows suggested next steps based on your current inventory and progress.
 The guidance system tracks progress from your first moments in the game through to defeating the Ender Dragon, automatically advancing as you complete goals.
 
 ### /automate Command
-Automation commands are not available in this version of the mod. A separate version with full automation support via Baritone is available on the `automation` branch of this repository.
+Automates common tasks using Baritone pathfinding. Commands are entered in plain English.
+
+- `/automate go to <x> <y> <z>` — walk to specific coordinates
+- `/automate go home` — navigate back to your spawn point
+- `/automate mine <material>` — find and mine a resource (e.g. `/automate mine diamonds`)
+- `/automate gather <material>` — collect surface resources (e.g. `/automate gather wood`)
+- `/automate surface` — find a path back to the surface
+- `/automate stop` — cancel whatever automation is running
+- `/automate status` — check what automation is currently active
+
+Supported mining targets include: diamonds, iron, gold, coal, redstone, lapis, emerald,
+copper, netherite, and all wood types. Plain English names are accepted
+(e.g. "diamonds" instead of "minecraft:diamond_ore").
+
+Automation requires Baritone to be installed — see Installation below.
 
 ### Target Lock
 Press `R` (default) to lock your camera onto the nearest hostile mob. Your view will smoothly track the target until it is defeated, moves out of range, or you press `R` again.
@@ -40,11 +54,17 @@ Both keybindings can be remapped in `Options → Controls → AgingWell`.
 ### Requirements
 - Minecraft with Forge installed (version compatible with this build)
 - Java 25 or higher
+- Baritone — required for automation features
 
 ### Steps
-1. Download the latest `AgingWell-1.0.0.jar` from the [Releases](../../releases) page
-2. Place it in your `.minecraft/mods` folder
-3. Launch Minecraft using your Forge profile
+1. Download the latest mod file from the [Releases](../../releases) page
+2. Download baritone from
+   `https://github.com/cabaletta/baritone/releases` or from the libs folder.
+3. Place **both** jars in your `.minecraft/mods` folder
+4. Launch Minecraft using your Forge profile
+
+If Baritone is not installed, the mod will still load and all features except
+automation will work normally. Automation commands will print an install reminder.
 
 ---
 
