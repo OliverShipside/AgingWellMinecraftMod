@@ -119,10 +119,9 @@ The `automation` branch of this repository contains a version of the mod with fu
 ---
 
 ## Planned Features
-- Persistent goal progress saved between sessions
-- Voice-friendly chat output formatting
-- Larger entity and block description databases
-- Server-side guidance for multiplayer sessions
+- Extended Baritone automation commands (farming, smelting queues, base building)
+- Automatic resource gathering based on current guidance goal
+- Combat automation for hostile mob encounters
 
 ---
 
