@@ -1,0 +1,37 @@
+# eclipse
+bin
+*.launch
+.settings
+.metadata
+.classpath
+.project
+
+# idea
+out
+*.ipr
+*.iws
+*.iml
+.idea
+
+# gradle
+build
+.gradle
+
+# other
+eclipse
+run
+
+# Files from Forge MDK
+forge_README.txt
+forge*changelog.txt
+
+# Baritone and other local jars - users must download separately
+libs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Local gradle properties that may contain personal paths
+local.properties
+gradle.properties
