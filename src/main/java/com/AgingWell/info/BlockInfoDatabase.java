@@ -95,6 +95,14 @@ public class BlockInfoDatabase {
         return TIPS.getOrDefault(id, Collections.emptyList());
     }
 
+    public static String getDescription(String id) {
+        return DESCRIPTIONS.get(id);
+    }
+
+    public static List<String> getTips(String id) {
+        return TIPS.getOrDefault(id, Collections.emptyList());
+    }
+
     // -----------------------------------------------------------------------
 
     private static String getPath(BlockState state) {

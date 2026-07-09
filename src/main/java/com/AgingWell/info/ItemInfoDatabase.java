@@ -91,9 +91,19 @@ public class ItemInfoDatabase {
 
     public static String describe(ItemStack stack) {
         String id = getPath(stack);
-        return DESCRIPTIONS.getOrDefault(id,
-                "This is " + stack.getHoverName().getString() + ". "
-                        + "No detailed description is available yet — try looking it up on the Minecraft Wiki!");
+
+        String description = DESCRIPTIONS.get(id);
+        if (description != null) {
+            return description;
+        }
+
+        description = BlockInfoDatabase.getDescription(id);
+        if (description != null) {
+            return description;
+        }
+
+        return "This is " + stack.getHoverName().getString() + ". "
+                + "No detailed description is available yet — try looking it up on the Minecraft Wiki!";
     }
 
     public static List<String> getTips(ItemStack stack) {
