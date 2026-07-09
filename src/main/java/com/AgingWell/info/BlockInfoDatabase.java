@@ -1,7 +1,11 @@
 package com.AgingWell.info;
 
+import net.minecraft.network.chat.Component;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.registries.ForgeRegistries;
+import net.minecraft.world.entity.player.Player;
+
 
 import java.util.*;
 
@@ -95,10 +99,18 @@ public class BlockInfoDatabase {
         return TIPS.getOrDefault(id, Collections.emptyList());
     }
 
+    public static String getDescription(String id) {
+        return DESCRIPTIONS.get(id);
+    }
+
+    public static List<String> getTips(String id) {
+        return TIPS.getOrDefault(id, Collections.emptyList());
+    }
+
     // -----------------------------------------------------------------------
 
     private static String getPath(BlockState state) {
-        var key = net.minecraftforge.registries.ForgeRegistries.BLOCKS.getKey(state.getBlock());
+        var key = ForgeRegistries.BLOCKS.getKey(state.getBlock());
         return key == null ? "" : key.getPath();
     }
 

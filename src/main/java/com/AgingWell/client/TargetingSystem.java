@@ -39,6 +39,12 @@ public class TargetingSystem {
         Player player = mc.player;
         if (player == null) return;
 
+        if (com.AgingWell.automation.BaritoneAdapter.isActive(player)) {
+            send(player, "\u00a7eTarget lock is unavailable while automation is running.");
+            send(player, "\u00a77Type /automate stop first.");
+            return;
+        }
+
         if (active && lockedTarget != null) {
             releaseLock(player, "Target lock released.");
         } else {

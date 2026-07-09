@@ -1,5 +1,6 @@
 package com.AgingWell.automation;
 
+import com.AgingWell.client.TargetingSystem;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.entity.player.Player;
 
@@ -16,8 +17,23 @@ public class BaritoneAdapter {
         }
     }
 
+    public static boolean isActive(Player player) {
+        if (!baritoneAvailable) return false;
+        TargetingSystem.getInstance().clearLock();
+        try {
+            Object baritone = getPrimaryBaritone();
+            Object pathingBehavior = baritone.getClass()
+                    .getMethod("getPathingBehavior").invoke(baritone);
+            return (boolean) pathingBehavior.getClass()
+                    .getMethod("isPathing").invoke(pathingBehavior);
+        } catch (Throwable e) {
+            return false;
+        }
+    }
+
     public static void goToCoordinates(Player player, double x, double y, double z) {
         if (!checkBaritone(player)) return;
+        TargetingSystem.getInstance().clearLock();
         try {
             Object baritone = getPrimaryBaritone();
             Object goal = Class.forName("baritone.api.pathing.goals.GoalBlock")
@@ -33,6 +49,7 @@ public class BaritoneAdapter {
 
     public static void goToSpawn(Player player) {
         if (!checkBaritone(player)) return;
+        TargetingSystem.getInstance().clearLock();
         try {
             Object baritone = getPrimaryBaritone();
             net.minecraft.core.BlockPos spawnPos = player.level().getLevelData().getSpawnPos();
@@ -49,6 +66,7 @@ public class BaritoneAdapter {
 
     public static void mineBlock(Player player, String blockId) {
         if (!checkBaritone(player)) return;
+        TargetingSystem.getInstance().clearLock();
         try {
             Object baritone = getPrimaryBaritone();
             Object process = baritone.getClass().getMethod("getMineProcess").invoke(baritone);
@@ -61,11 +79,13 @@ public class BaritoneAdapter {
 
     public static void followClosestPlayer(Player player) {
         if (!checkBaritone(player)) return;
+        TargetingSystem.getInstance().clearLock();
         send(player, "\u00a7cFollow is not supported in this version of Baritone.");
     }
 
     public static void goToSurface(Player player) {
         if (!checkBaritone(player)) return;
+        TargetingSystem.getInstance().clearLock();
         try {
             Object baritone = getPrimaryBaritone();
             Object goal = Class.forName("baritone.api.pathing.goals.GoalYLevel")
@@ -81,6 +101,7 @@ public class BaritoneAdapter {
 
     public static void stop(Player player) {
         if (!baritoneAvailable) return;
+        TargetingSystem.getInstance().clearLock();
         try {
             Object baritone = getPrimaryBaritone();
             Object pathingBehavior = baritone.getClass()
