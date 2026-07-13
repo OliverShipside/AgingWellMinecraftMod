@@ -44,15 +44,17 @@ public class GuidanceCommand {
         Player player = ctx.getSource().getPlayer();
         if (player == null) return 0;
 
-        String goal = GoalAdvisor.getCurrentGoal(player);
-        String detail = GoalAdvisor.getCurrentGoalDetail(player);
+        String goal      = GoalAdvisor.getCurrentGoal(player);
+        String detail    = GoalAdvisor.getCurrentGoalDetail(player);
 
-        send(player, "§e§l=== Current Goal ===");
-        send(player, "§f" + goal);
+        send(player, "\u00a7e\u00a7l=== Current Goal ===");
         if (detail != null && !detail.isEmpty()) {
-            send(player, "§7" + detail);
+            send(player, "\u00a77" + detail);
         }
-        send(player, "§7Tip: use §f/guidance toggle§7 to pin this to your screen.");
+        else{
+            send(player, "\u00a7f" + goal);
+        }
+        send(player, "\u00a77Tip: use \u00a7f/guidance toggle\u00a77 to pin this to your screen.");
         return 1;
     }
 

@@ -52,16 +52,15 @@ public class GuidanceOverlay {
 
         String title  = "\u00a7l[ Next Goal ]";
         String goal   = GoalAdvisor.getCurrentGoal(player);
-        String detail = GoalAdvisor.getCurrentGoalDetail(player);
         String hint = "\u00a7oPress " + KeyBindings.TOGGLE_GUIDANCE.getTranslatedKeyMessage().getString() + " to hide  \u2022  /guidance next to skip";
 
         int maxWidth = Math.max(font.width(title),
                 Math.max(font.width(goal), font.width(hint)));
-        if (detail != null && !detail.isEmpty()) {
-            maxWidth = Math.max(maxWidth, font.width(detail));
+        if (!goal.isEmpty()) {
+            maxWidth = Math.max(maxWidth, font.width(goal));
         }
 
-        boolean hasDetail = detail != null && !detail.isEmpty();
+        boolean hasDetail = !goal.isEmpty();
         int panelW = maxWidth + PADDING * 2;
         int panelH = (hasDetail ? 4 : 3) * LINE_HEIGHT + PADDING * 2;
         int x = MARGIN_X;
@@ -76,10 +75,7 @@ public class GuidanceOverlay {
         ty += LINE_HEIGHT;
         graphics.text(font, goal,   tx, ty, GOAL_COL,  false);
         ty += LINE_HEIGHT;
-        if (hasDetail) {
-            graphics.text(font, detail, tx, ty, HINT_COL,  false);
-            ty += LINE_HEIGHT;
-        }
+
         graphics.text(font, hint,   tx, ty, HINT_COL,  false);
     }
 }
