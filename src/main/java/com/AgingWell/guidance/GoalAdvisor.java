@@ -264,9 +264,59 @@ public class GoalAdvisor {
 
         GOALS.add(new Goal(
                 "Defeat the Ender Dragon",
-                "Destroy all End Crystals on the obsidian pillars first, then attack the dragon when it hovers over the portal or shoot it with a bow.",
-                "Destroy all End Crystals on the obsidian pillars first, then attack the dragon when it hovers over the portal or shoot it with a bow.",
+                "Destroy all End Crystals on the pillars first, then attack the dragon.",
+                "When you arrive in The End, look for tall obsidian pillars with glowing crystals on top. " +
+                        "Shoot the crystals with arrows or climb the pillars and break them to stop the dragon healing. " +
+                        "Once all crystals are destroyed, the dragon will fly in circles over the central portal. " +
+                        "Shoot it with arrows when it is flying and attack with your sword when it descends. " +
+                        "When defeated, a portal home and the Dragon Egg will appear. Type /guidance next to continue.",
                 p -> hasItemCount(p, "ender_eye", 12),
+                p -> false
+        ));
+
+        GOALS.add(new Goal(
+                "Collect the Dragon Egg",
+                "Right-click the Dragon Egg to move it, then collect it.",
+                "After defeating the Ender Dragon, a Dragon Egg appears on top of the End Portal. " +
+                        "You cannot mine it directly as it will teleport away. Instead, right-click it once to move it " +
+                        "to a nearby location, then place a torch on the block below it and break that block — " +
+                        "the egg will fall onto the torch and drop as a collectible item. " +
+                        "This is a trophy marking completion of the main game.",
+                p -> false,
+                p -> hasItem(p, "dragon_egg")
+        ));
+
+        GOALS.add(new Goal(
+                "Find an End City",
+                "Explore The End to find tall purple towers called End Cities.",
+                "After defeating the Ender Dragon, return to The End through the portal. " +
+                        "Walk away from the central island — you will need to cross a large void gap. " +
+                        "Build a bridge or use Ender Pearls to reach the outer islands. " +
+                        "Look for tall purple structures called End Cities. They contain excellent loot " +
+                        "including Elytra (wings that let you fly) and Shulker Boxes (portable storage).",
+                p -> hasItem(p, "dragon_egg"),
+                p -> false
+        ));
+
+        GOALS.add(new Goal(
+                "Find an Elytra",
+                "Search End Ships attached to End Cities for an Elytra — wings that let you glide.",
+                "End Cities sometimes have a smaller floating ship attached to them called an End Ship. " +
+                        "Inside the End Ship you will find an Elytra displayed on an item frame on the wall. " +
+                        "Right-click it to collect it. Equip it in your chest armour slot and jump from a height " +
+                        "then press Space to glide. Use Fireworks to fly while gliding.",
+                p -> hasItem(p, "dragon_egg"),
+                p -> hasItem(p, "elytra")
+        ));
+
+        GOALS.add(new Goal(
+                "You have completed Minecraft!",
+                "You have seen everything the base game has to offer. The world is yours to explore freely.",
+                "Congratulations! You have completed all of the main content Minecraft has to offer. " +
+                        "From here the game is entirely yours — you could build something creative, " +
+                        "try a harder difficulty, explore more of the world, or start a new adventure. " +
+                        "Well done for getting this far!",
+                p -> hasItem(p, "elytra"),
                 p -> false
         ));
     }

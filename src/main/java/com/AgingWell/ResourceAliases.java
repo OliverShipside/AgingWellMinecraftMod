@@ -45,6 +45,26 @@ public class ResourceAliases {
         put("dark oak",        "minecraft:dark_oak_log");
         put("cherry",          "minecraft:cherry_log");
         put("mangrove",        "minecraft:mangrove_log");
+        put("birch logs",      "minecraft:birch_log");
+        put("birch log",       "minecraft:birch_log");
+        put("spruce logs",     "minecraft:spruce_log");
+        put("spruce log",      "minecraft:spruce_log");
+        put("pine",            "minecraft:spruce_log");
+        put("pine logs",       "minecraft:spruce_log");
+        put("jungle",          "minecraft:jungle_log");
+        put("jungle logs",     "minecraft:jungle_log");
+        put("jungle log",      "minecraft:jungle_log");
+        put("acacia logs",     "minecraft:acacia_log");
+        put("acacia log",      "minecraft:acacia_log");
+        put("dark oak logs",   "minecraft:dark_oak_log");
+        put("dark oak log",    "minecraft:dark_oak_log");
+        put("mangrove logs",   "minecraft:mangrove_log");
+        put("mangrove log",    "minecraft:mangrove_log");
+        put("cherry logs",     "minecraft:cherry_log");
+        put("cherry log",      "minecraft:cherry_log");
+        put("bamboo wood",     "minecraft:bamboo_block");
+        put("crimson",         "minecraft:crimson_stem");
+        put("warped",          "minecraft:warped_stem");
 
         // --- Stone / earth ---
         put("stone",           "minecraft:stone");
