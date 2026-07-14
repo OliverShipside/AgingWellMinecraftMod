@@ -9,7 +9,7 @@ plugins {
     id 'net.minecraftforge.gradle' version '[7.0.17,8)'
 }
 
-version = '1.0.0'
+version = '1.0.1'
 group = 'com.AgingWell'
 
 // Mojang ships Java 25 to end users in 26.1+, so your mod should target Java 25.
@@ -53,7 +53,7 @@ repositories {
 
 jar {
     archiveBaseName = 'AgingWell-Automation'
-    archiveVersion = '1.0.0'
+    archiveVersion = '1.0.1'
 }
 
 dependencies {
