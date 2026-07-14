@@ -58,7 +58,7 @@ public class ResourceAliases {
         put("andesite",        "minecraft:andesite");
         put("deepslate",       "minecraft:deepslate");
         put("obsidian",        "minecraft:obsidian");
-        put("bedrock",         "minecraft:bedrock");   // Baritone will simply not find it
+        put("bedrock",         "minecraft:bedrock");
 
         // --- Plants / food ---
         put("wheat",           "minecraft:wheat");
